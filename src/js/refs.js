@@ -1,6 +1,6 @@
 export default function getRefs() {
   return {
-    searchForm: document.querySelector('.js-search-form'),
-  articlesContainer: document.querySelector('.js-articles-container'),
+  searchForm: document.querySelector('.search-form'),
+  galleryContainer: document.querySelector('.gallery'),
   };
 }
