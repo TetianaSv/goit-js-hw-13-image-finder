@@ -1,39 +1,37 @@
 import getRefs from './js/refs'
-import fetchAPI from './js/fetchAPI'
 import { debounce } from 'lodash'
+import '../src/style.css'
+import NewsApiService from './js/apiService'
+import renderImageCard from './js/renderImageCard'
 
 
 const refs = getRefs();
-console.log(refs)
+// console.log(refs)
+
+const newsApiService = new NewsApiService();
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 2000));
+refs.loadMoreBtn.addEventListener('click', onLoadMore)
 
 
-function onSearch(searchQuery) {
- let searchWorld = searchQuery.target.value;
-  
-fetchAPI(searchWorld)
+function onSearch(e) {
+newsApiService.query = e.target.value;
+clearGalleryContainer();
+newsApiService.resetPage();
+newsApiService.fetchAPI().then(renderImageCard)
+
+if (newsApiService.searchWord = '') {
+  clearGalleryContainer();
+}
 }
 
 
 
+function onLoadMore () {
+  newsApiService.fetchAPI().then(renderImageCard)
+}
 
-// function fetchImages(searchWord, per_page, page) {
-  
-//   const PIXABAY_KEY = '19177852-b1d4f8b0af27ffd052e9c4f4a';
-//   const BASE_URL = 'https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchWord}&page=${page}&per_page=${per_page}&key=${PIXABAY_KEY}';
 
-//   return fetch(BASE_URL)
-//     .then(response => response.json())
-//     .then(renderCountryCard)
-//     .catch(error => console.log(error))
-//   // searchWord,
-//   // per_page = 12,
-//   // page = 1,
-// // } {
-// //   const request = await fetch(
-// //     `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchWord}&page=${page}&per_page=${per_page}&key=${PIXABAY_KEY}`,
-// //   );
-
-// //   return await request.json();
-// }
+function clearGalleryContainer() {
+  refs.galleryContainer.innerHTML = '';
+}
