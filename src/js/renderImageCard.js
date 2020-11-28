@@ -4,9 +4,6 @@ import CardTmpl from '../templates/tmpl.hbs'
 
 export default function renderImageCard(cards) {
   
-
-
-    console.log(cards)
     const markup = CardTmpl(cards)
     makeMarkup(markup);
 }
@@ -14,3 +11,4 @@ export default function renderImageCard(cards) {
 function makeMarkup(html) {
   refs.galleryContainer.insertAdjacentHTML('beforeend', html);
 }
+

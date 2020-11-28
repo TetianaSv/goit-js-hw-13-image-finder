@@ -16,7 +16,7 @@ export default class NewsApiService {
     return fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchWord}&page=${this.page}&per_page=${per_page}&key=${MY_KEY}`)
         .then(response => response.json())
         .then(data => {
-          this.page += 1
+          this.page += 1;
         return data.hits;
         }
           )

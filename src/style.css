@@ -2,8 +2,16 @@ ul {
   padding: 0px;
 }
 input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 200px;
-  
+height: 40px;
+text-align: center;
+  border-color: blueviolet;
+}
+.photo-card {
+  border: solid 2px blueviolet;
 }
 .gallery-item {
  display: block;
@@ -30,4 +38,17 @@ input {
 .stats {
 display: flex;
 justify-content: space-around;
+}
+.btn {
+  width: 200px;
+height: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: blueviolet;
+  font-weight: bold;
+}
+.search-form {
+  margin-left: auto;
+  margin-right: auto;
 }
