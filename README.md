@@ -1,2 +1,3 @@
-#goit-js-hw-12-countries
-homework 12
+#goit-js-hw-13-image-finder
+
+
